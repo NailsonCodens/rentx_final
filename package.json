@@ -10,7 +10,7 @@
     "migrationsRevert": "yarn typeorm migration:revert -- -d src/shared/infra/typeorm/data-source.ts",
     "createMigrations": "yarn typeorm migration:create",
     "seed:admin": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles --watchAll --no-cache"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

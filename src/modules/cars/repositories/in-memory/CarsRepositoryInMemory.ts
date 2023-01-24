@@ -1,6 +1,7 @@
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import { Cars } from "@modules/cars/infra/typeorm/entities/Cars";
-import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
+
+import { ICarsRepository } from "../ICarsRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
   cars: Cars[] = [];
@@ -34,11 +35,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
   }
 
   async findByLicensePlate(license_plate: string): Promise<Cars> {
-    const car = await this.cars.find(
-      (car) => car.license_plate === license_plate
-    );
-
-    return car;
+    return this.cars.find((car) => car.license_plate === license_plate);
   }
 
   async findAvailable(
@@ -46,24 +43,23 @@ class CarsRepositoryInMemory implements ICarsRepository {
     category_id?: string,
     name?: string
   ): Promise<Cars[]> {
-    const all = this.cars.filter((car) => {
-      if (
-        car.available === true ||
-        (brand && car.brand === brand) ||
-        (category_id && car.category_id === category_id) ||
-        (name && car.name === name)
-      ) {
-        return car;
-      }
-      return null;
+    let availableCars = this.cars.filter((car) => car.available);
+
+    if (!name && !brand && !category_id) return availableCars;
+
+    availableCars = availableCars.filter((car) => {
+      if (car.name === name) return true;
+      if (car.brand === brand) return true;
+      if (car.category_id === category_id) return true;
+
+      return false;
     });
 
-    return all;
+    return availableCars;
   }
 
   async findById(id: string): Promise<Cars> {
-    const car = this.cars.find((car) => car.id === id);
-    return car;
+    return this.cars.find((car) => car.id === id);
   }
 
   async updateAvailable(id: string, available: boolean): Promise<void> {
