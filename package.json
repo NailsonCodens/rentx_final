@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "dev": "NODE_ENV=server ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "migrations": "yarn typeorm migration:run -- -d src/shared/infra/typeorm/data-source.ts",
     "migrationsRevert": "yarn typeorm migration:revert -- -d src/shared/infra/typeorm/data-source.ts",
@@ -20,6 +20,7 @@
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.0",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.0",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
     "supertest": "^6.3.3",

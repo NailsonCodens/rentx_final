@@ -4,7 +4,7 @@ import { CreateRentalController } from "@modules/rentals/useCases/createRental/C
 import { DevolutionRentalController } from "@modules/rentals/useCases/devolutionRental/DevolutionRentalController";
 import { ListRentalsByUserController } from "@modules/rentals/useCases/listRentalsByUser/ListRentalsByUserController";
 
-import { ensureAutehnticated } from "../middlewares/middleware";
+import { ensureAutehnticated } from "../middlewares/ensureAuthenticate";
 
 const rentalRoutes = Router();
 

@@ -6,6 +6,7 @@ interface IResponseTokenDTO {
     avatar?: string;
   };
   token: string;
+  refresh_token: string;
 }
 
 export { IResponseTokenDTO };

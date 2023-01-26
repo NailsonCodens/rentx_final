@@ -8,7 +8,7 @@ import { ListAvailableCarsController } from "@modules/cars/useCases/listAvailabl
 import { UploadCarImagesController } from "@modules/cars/useCases/uploadImage/UploadCarImagesController";
 
 import { ensureAdmin } from "../middlewares/ensureAdmin";
-import { ensureAutehnticated } from "../middlewares/middleware";
+import { ensureAutehnticated } from "../middlewares/ensureAuthenticate";
 
 const carsRouter = Router();
 
