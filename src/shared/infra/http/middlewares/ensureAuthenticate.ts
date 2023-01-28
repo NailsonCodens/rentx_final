@@ -23,15 +23,11 @@ export async function ensureAutehnticated(
 
   const [, token] = authHeader.split(" ");
 
-  console.log(auth.secret_refresh_token);
-
   try {
     const { sub: user_id } = verify(
       token,
       auth.secret_refresh_token
     ) as IPayload;
-
-    console.log(user_id);
 
     const user = await usersTokensRepository.findByUserIdAndRefreshToken(
       user_id,
@@ -48,7 +44,6 @@ export async function ensureAutehnticated(
 
     next();
   } catch (error) {
-    console.log(error);
     throw new AppError("Invalid token!", 401);
   }
 }

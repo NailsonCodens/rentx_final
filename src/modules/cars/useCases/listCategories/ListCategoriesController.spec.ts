@@ -9,7 +9,7 @@ import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
 let dataSource: DataSource;
 
-describe("Create Category Controller", () => {
+describe("List Category Controller", () => {
   beforeAll(async () => {
     dataSource = await AppDataSource.initialize();
 
@@ -40,7 +40,7 @@ describe("Create Category Controller", () => {
     await dataSource.destroy();
   });
 
-  it("Should be able to create a new category", async () => {
+  it("Should be able to list all categories", async () => {
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
       password: "admin",
@@ -48,37 +48,21 @@ describe("Create Category Controller", () => {
 
     const { refresh_token } = responseToken.body;
 
-    const response = await request(app)
+    await request(app)
       .post("/categories")
       .send({
-        name: "category supertest",
+        name: "category supertest list",
         description: "supertest",
       })
       .set({
         Authorization: `Bearer ${refresh_token}`,
       });
+
+    const response = await request(app).get("/categories");
 
     expect(response.status).toBe(201);
-  });
-
-  it("Should not be able to create a new category with name exists", async () => {
-    const responseToken = await request(app).post("/sessions").send({
-      email: "admin@rentx.com.br",
-      password: "admin",
-    });
-
-    const { refresh_token } = responseToken.body;
-
-    const response = await request(app)
-      .post("/categories")
-      .send({
-        name: "category supertest",
-        description: "supertest",
-      })
-      .set({
-        Authorization: `Bearer ${refresh_token}`,
-      });
-
-    expect(response.status).toBe(400);
+    expect(response.body.length).toBe(1);
+    expect(response.body[0]).toHaveProperty("id");
+    expect(response.body[0].name).toEqual("category supertest list");
   });
 });

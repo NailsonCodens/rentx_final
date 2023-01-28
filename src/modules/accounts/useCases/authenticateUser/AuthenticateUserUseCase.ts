@@ -5,8 +5,8 @@ import { inject, injectable } from "tsyringe";
 import auth from "@config/auth";
 import { IAuthenticateDTO } from "@modules/accounts/dtos/IAuthenticateDTO";
 import { IResponseTokenDTO } from "@modules/accounts/dtos/IResponseTokenDTO";
-import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 import { IUserRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateprovider";
 import { AppError } from "@shared/errors/AppError";
 
@@ -15,7 +15,7 @@ class AuthenticateUserUseCase {
   constructor(
     @inject("UsersRepository") private userRepository: IUserRepository,
     @inject("UsersTokensRepository")
-    private usersTokensRepository: UsersTokensRepository,
+    private usersTokensRepository: IUsersTokensRepository,
     @inject("DayjsProvider")
     private dayjsProvider: IDateProvider
   ) {}

@@ -9,7 +9,6 @@ class ListRentalsByUserUseCase {
   ) {}
 
   async execute(user_id: string) {
-    console.log(user_id);
     const rentalsByUser = await this.rentalsRepository.findByUser(user_id);
 
     return rentalsByUser;
