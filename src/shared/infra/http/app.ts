@@ -1,3 +1,4 @@
+import * as dotenv from "dotenv";
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
@@ -8,6 +9,8 @@ import { AppError } from "@shared/errors/AppError";
 
 import swaggerFile from "../../../swagger.json";
 import routers from "./routes";
+
+dotenv.config();
 
 const app = express();
 
