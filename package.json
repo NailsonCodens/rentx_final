@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --extensions .ts --out-dir dist --copy-files",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev": "NODE_ENV=server ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "migrations": "yarn typeorm migration:run -- -d src/shared/infra/typeorm/data-source.ts",
@@ -56,7 +56,6 @@
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "babel-plugin-module-resolve": "^1.4.5",
-    "babel-plugin-module-resolver": "^5.0.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "eslint": "^8.0.1",
     "eslint-config-airbnb-base": "^15.0.0",

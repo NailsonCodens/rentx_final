@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "CommonJS",
+    "target": "es5",
+    "module": "commonjs",
     "rootDir": "./",
     "baseUrl": "./src",
+    "outDir": "./dist",
     "paths": {
       "@modules/*": [
         "modules/*"
@@ -19,16 +20,13 @@
       ],
       "@utils/*": [
         "utils/*"
-      ],
-      "@database/*": [
-        "database/*"
       ]
     },
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   }
 }
