@@ -2,3 +2,4 @@ node_modules
 yarn_error.log
 .vscode
 coverage
+.env
