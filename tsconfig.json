@@ -20,6 +20,9 @@
       "@utils/*": [
         "utils/*"
       ],
+      "@database/*": [
+        "database/*"
+      ]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

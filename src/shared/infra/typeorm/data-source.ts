@@ -12,11 +12,14 @@ import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 export const AppDataSource = new DataSource({
   type: "postgres",
   host:
-    process.env.NODE_ENV === "server" ? "database_ignite_tests" : "localhost",
+    process.env.NODE_ENV === "server"
+      ? process.env.DB_HOST
+      : process.env.DB_HOST_TEST,
   port: 5432,
-  username: "docker",
-  password: "ignite",
-  database: process.env.NODE_ENV === "test" ? "rentx_test" : "rentx",
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database:
+    process.env.NODE_ENV === "test" ? process.env.DB_TEST : process.env.DB,
   synchronize: false,
   logging: false,
   migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
