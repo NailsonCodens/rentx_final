@@ -12,9 +12,9 @@ import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 export const AppDataSource = new DataSource({
   type: "postgres",
   host:
-    process.env.NODE_ENV === "server"
-      ? process.env.DB_HOST
-      : process.env.DB_HOST_TEST,
+    process.env.NODE_ENV === "test"
+      ? process.env.DB_HOST_TEST
+      : process.env.DB_HOST,
   port: 5432,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
