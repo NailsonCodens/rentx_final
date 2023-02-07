@@ -22,7 +22,7 @@ export const AppDataSource = new DataSource({
     process.env.NODE_ENV === "test" ? process.env.DB_TEST : process.env.DB,
   synchronize: false,
   logging: false,
-  migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
+  migrations: [process.env.DB_PATH_MIGRATIONS],
   entities: [
     Category,
     Specification,
