@@ -15,7 +15,7 @@ export const AppDataSource = new DataSource({
     process.env.NODE_ENV === "test"
       ? process.env.DB_HOST_TEST
       : process.env.DB_HOST,
-  port: 5432,
+  port: Number(process.env.DB_PORT),
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database:
