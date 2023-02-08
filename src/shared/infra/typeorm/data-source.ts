@@ -9,6 +9,8 @@ import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 
+console.log(process.env.DB_USERNAME);
+
 export const AppDataSource = new DataSource({
   type: "postgres",
   host:
@@ -33,6 +35,8 @@ export const AppDataSource = new DataSource({
     UserTokens,
   ],
 });
+
+console.log(process.env.DB_USERNAME);
 
 AppDataSource.initialize().then(async () => {
   console.log("Connection initialized with database...");
