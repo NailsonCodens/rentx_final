@@ -9,22 +9,18 @@ import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 
-console.log(process.env.DB_USERNAME);
+import orm from "../../../../orm.json";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host:
-    process.env.NODE_ENV === "test"
-      ? process.env.DB_HOST_TEST
-      : process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database:
-    process.env.NODE_ENV === "test" ? process.env.DB_TEST : process.env.DB,
+  host: process.env.NODE_ENV === "test" ? orm.DB_HOST_MIGRATION : orm.DB_HOST,
+  port: 5432,
+  username: orm.DB_USER,
+  password: orm.DB_PASSWORD,
+  database: process.env.NODE_ENV === "test" ? orm.DB_TEST : orm.DB,
   synchronize: false,
   logging: false,
-  migrations: [process.env.DB_PATH_MIGRATIONS],
+  migrations: [orm.DB_PATH_MIGRATION],
   entities: [
     Category,
     Specification,
@@ -35,9 +31,7 @@ export const AppDataSource = new DataSource({
     UserTokens,
   ],
 });
-
-console.log(process.env.DB_USERNAME);
-
+console.log(process.env.NODE_ENV);
 AppDataSource.initialize().then(async () => {
   console.log("Connection initialized with database...");
 });
