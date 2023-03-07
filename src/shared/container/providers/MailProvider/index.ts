@@ -11,5 +11,5 @@ const mailProvider = {
 
 container.registerInstance<IMailProvider>(
   "MailProvider",
-  new EtherealMailProvider()
+  mailProvider[process.env.MAIL_PROVIDER]
 );
