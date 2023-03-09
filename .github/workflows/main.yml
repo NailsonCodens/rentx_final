@@ -27,7 +27,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }} 
-        passphrase : ${{SSH_PASSWORD_KEY}}
+        passphrase : ${{secrets.SSH_PASSWORD_KEY}}
         source: "., !node_modules"
         target: "test"
         
