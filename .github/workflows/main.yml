@@ -16,7 +16,7 @@ jobs:
        with:
         node-version: 16.19.0
      - name: Install Dependencies
-       run: yarn
+       run: yarn install
       
      - name: Build
        run: yarn build
