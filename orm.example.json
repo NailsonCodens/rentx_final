@@ -1,0 +1,10 @@
+{
+  "DB_HOST": "localhost",
+  "DB_HOST_MIGRATION": "localhost",
+  "DB_PORT": 1233,
+  "DB_USER": "user",
+  "DB_PASSWORD": "pass",
+  "DB": "database",
+  "DB_TEST": "database_test",
+  "DB_PATH_MIGRATION": "./dist/shared/infra/typeorm/migrations/*.js"
+}

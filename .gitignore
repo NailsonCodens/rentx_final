@@ -6,3 +6,5 @@ tmp/*
 .env
 !tmp/.gitkeep
 dist
+orm.json
+docker-compose.yml

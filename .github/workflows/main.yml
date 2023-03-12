@@ -16,7 +16,7 @@ jobs:
        with:
         node-version: 16.19.0
      - name: Install Dependencies
-       run: yarn install && yarn add babel-plugin-module-resolver
+       run: yarn install
       
      - name: Build
        run: yarn build
@@ -25,9 +25,8 @@ jobs:
        with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        key: ${{ secrets.SSH_KEY }} 
-        passphrase : ${{secrets.SSH_PASSWORD_KEY}}
         source: "., !node_modules"
         target: "~/api/rentx_tests"
             
