@@ -30,5 +30,18 @@ jobs:
         passphrase : ${{secrets.SSH_PASSWORD_KEY}}
         source: "., !node_modules"
         target: "test"
-        
+            
+     - name: Update API
+       uses: appleboy/ssh-action@master
+       with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        port: ${{ secrets.SSH_PORT }}
+        key: ${{ secrets.SSH_KEY }} 
+        script: |
+          cd ~/api/rentx_tests
+          yarn
+          migrations
+          pm2 restart rentx_api        
+
      
