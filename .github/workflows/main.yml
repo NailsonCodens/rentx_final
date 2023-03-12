@@ -29,7 +29,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }} 
         passphrase : ${{secrets.SSH_PASSWORD_KEY}}
         source: "., !node_modules"
-        target: "test"
+        target: "~/api/rentx_tests"
             
      - name: Update API
        uses: appleboy/ssh-action@master
