@@ -16,7 +16,7 @@ jobs:
        with:
         node-version: 16.19.0
      - name: Install Dependencies
-       run: yarn install
+       run: yarn install && yarn add babel-plugin-module-resolver
       
      - name: Build
        run: yarn build
