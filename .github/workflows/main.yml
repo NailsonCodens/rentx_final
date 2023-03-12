@@ -41,8 +41,7 @@ jobs:
         passphrase : ${{secrets.SSH_PASSWORD_KEY}}
         script: |
           cd ~/api/rentx_tests
-          yarn
-          migrations
+          yarn migrations
           pm2 restart rentx_api        
 
      
