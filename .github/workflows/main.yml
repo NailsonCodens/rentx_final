@@ -26,6 +26,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
+        passphrase : ${{secrets.SSH_PASSWORD_KEY}}
         port: ${{ secrets.SSH_PORT }}
         source: "., !node_modules"
         target: "~/api/rentx_tests"
