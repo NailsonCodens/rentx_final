@@ -8,3 +8,5 @@ tmp/*
 dist
 orm.json
 docker-compose.yml
+yarn-error.log
+yarn.lock
