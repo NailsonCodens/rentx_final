@@ -80,11 +80,13 @@ O projeto foi desenvolvido usando as linguagens e ferramentas abaixo.
     $ https://localhost:3333
 ```
 
-## Prints Insominia
+## Print Insominia
 <img title="a title" alt="Alt text" src="https://github.com/NailsonCodens/rentx_final/blob/main/prints/ba686f34-348e-412e-b4c6-0165a794fbad.png?raw=true">
 
 
-## Prints Documentação api Swagger
+## Print Documentação api Swagger
+<img title="a title" alt="Alt text" src="https://github.com/NailsonCodens/rentx_final/blob/main/prints/2c6810c8-1de9-4134-ad12-63c12be67d42.png?raw=true
+">
 
 </br></br></br>
 <p align="center">
